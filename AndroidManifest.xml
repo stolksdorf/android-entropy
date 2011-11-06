@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="stolksdorf.media.entropy"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-permission android:name="android.permission.VIBRATE"/> 
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
+        <activity android:name=".Entropy"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:multiprocess="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <receiver android:name=".AlarmReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="stolksdorf.media.entropy.custom.intent.action.TEST"></action>
+            </intent-filter>
+        </receiver>
+        
+        
+        
+       <service android:name=".EntropyService" class=".EntropyService" android:process=":remote" />
+              
+
+    </application>
+    <uses-sdk android:minSdkVersion="3" />
+
+</manifest> 
